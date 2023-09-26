@@ -1,0 +1,248 @@
+- math_test/math_test.md:
+  - description: math_test row 1 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '101(\s|\t|)+\|(\s|\t|)+3(\s|\t|)+\|(\s|\t|)+1(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 2 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '10000000(\s|\t|)+\|(\s|\t|)+8(\s|\t|)+\|(\s|\t|)+1(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 3 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '101100101(\s|\t|)+\|(\s|\t|)+9(\s|\t)+\|(\s|\t|)+2(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 4 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '10000000101(\s|\t|)+\|(\s|\t|)+11(\s|\t)+\|(\s|\t|)+2(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 5 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '101001101000001111011111101001(\s|\t|)+\|(\s|\t|)+30(\s|\t|)+\|(\s|\t|)+3(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 6 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '11111111(\s|\t|)+\|(\s|\t|)+8(\s|\t|)+\|(\s|\t|)+1(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 7 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '1111111111111111111111111111111(\s|\t|)+\|(\s|\t|)+31(\s|\t|)+\|(\s|\t|)+4(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 8 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '100001001011100101(\s|\t|)+\|(\s|\t|)+18(\s|\t|)+\|(\s|\t|)+3(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 9 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '110100001101010100011101000(\s|\t|)+\|(\s|\t|)+27(\s|\t|)+\|(\s|\t|)+4(\s|\t|)+\|'
+      count: 1
+      exact: true
+- math_test/math_test.md:
+  - description: math_test row 10 correct
+    category: Binary math
+    check: MatchFileRegex
+    options:
+      regex: '100000000(\s|\t|)+\|(\s|\t|)+9(\s|\t|)+\|(\s|\t|)+2(\s|\t|)+\|'
+      count: 1
+      exact: true
+- liftoff/program.S:
+  - description: liftoff/program.S uses the LDR instruction to load address of format string into correct register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[LDR|ldr](\s)+?[R|r]0,(\s)+=format'
+      count: 1
+      exact: false
+- liftoff/program.S:
+  - description: liftoff/program.S moves 10 to a register to start countdown
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[mov|MOV](\s|\t)+[R|r][0-7],(\s)+#10'
+      count: 1
+      exact: true
+- liftoff/program.S:
+  - description: liftoff/program.S uses the LDR instruction to load address of liftoff string into correct register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[ldr|LDR](\s)+?[R|r]0,(\s)+=liftoff'
+      count: 1
+      exact: false
+- liftoff/program.S:
+  - description: liftoff/program.S uses the LDR instruction to load address of format string into correct register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[bl|BL](\s|\t)+printf'
+      count: 1
+      exact: false
+- liftoff/program.S:
+  - description: liftoff/program.S uses the SUB instruction to decrement the countdown by 1
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[sub|SUB](\s|\t)+[R|r][0-7],(\s)+#1'
+      count: 1
+      exact: true
+- liftoff/program.S:
+  - description: liftoff/program.S uses the SUB instruction to decrement the countdown by 1
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[sub|SUB](\s|\t)+[R|r][0-7],(\s)+#1'
+      count: 1
+      exact: false
+- liftoff/program.S:
+  - description: liftoff/program.S uses the countdown label to create subroutine decrementing countdown
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: 'countdown:\n'
+      count: 1
+      exact: true
+- liftoff/program.S:
+  - description: liftoff/program.S uses the CMP instruction to compare a value to set the Z flag of xPSR
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[cmp|CMP](\s|\t)+[R|r][0-7],(\s)+#[0-1]'
+      count: 1
+      exact: false
+- liftoff/program.S:
+  - description: liftoff/program.S uses a branch instruction to jump to the countdown label
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[bge|BGE](\s|\t)+countdown'
+      count: 1
+      exact: false
+- liftoff/program.S:
+  - description: liftoff/program.S uses the lift label to create subroutine to print LIFTOFF!
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: 'lift:\n'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the LDR instruction to load address of size into a register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[ldr|LDR](\s|\t)+?[R|r][0-7],(\s)+=size'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the LDR instruction to load address of arr into a register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[ldr|LDR](\s|\t)+?[R|r][0-7],(\s)+=arr'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the LDRB instruction to load a byte into a register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[ldrb|LDRB](\s|\t)+[R|r][0-7],(\s)+\[[R|r][0-7],(\s)+[R|r][0-7]\]'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the loop label to designate the addition subroutine
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: 'loop:\n'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the CMP instruction to see if current memory location equals end of array memory
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[cmp|CMP](\s|\t)+[R|r][0-7],(\s)+[R|r][0-7]'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the CMP instruction to see if current memory location equals end of array memory
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[cmp|CMP](\s|\t)+[R|r][0-7],(\s)+[R|r][0-7]'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the BNE instruction to branch when CMP'd value is not equal to return to loop label
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[bne|BNE](\s|\t)+loop'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the print label to designate the print subroutine
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: 'print:\n'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S loads the format string into the correct register
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[ldr|LDR](\s|\t)+[R|r]0,(\s)=format'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S moves the running sum to the correct register to print
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[mov|MOV](\s|\t)+[R|r]1,(\s)[R|r][2-7]'
+      count: 1
+      exact: true
+- processor/program.S:
+  - description: processor/program.S uses the BL instruction to printf the sum
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[bl|BL](\s|\t)+printf'
+      count: 1
+      exact: true
