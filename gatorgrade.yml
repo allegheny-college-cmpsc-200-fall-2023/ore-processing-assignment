@@ -246,3 +246,51 @@
       regex: '[bl|BL](\s|\t)+printf'
       count: 1
       exact: true
+- polarity_checker/program.S:
+  - description: polarity_checker/program.S uses correct B.. insructions to branch after CMP
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[b|B][GT|gt|LT|lt|GE|ge](\s|\t)+[a-zA-Z_]+'
+      count: 3
+      exact: false
+- polarity_checker/program.S:
+  - description: polarity_checker/program.S loads signed bytes from byte array
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[LDRSB|ldrsb](\s|\t)+[r|R][0-7],(\s)?\[[R|r][0-7],(\s)+[R|r][0-7]\]'
+      count: 1
+      exact: true
+- polarity_checker/program.S:
+  - description: polarity_checker/program.S loads the byte array from memory
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[ldr|LDR](\s|\t)+[r|R][0-7],(\s)?=polarities'
+      count: 1
+      exact: true
+- polarity_checker/program.S:
+  - description: polarity_checker/program.S uses at least three labels
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[a-zA-Z_]+:\n'
+      count: 3
+      exact: false
+- polarity_checker/program.S:
+  - description: polarity_checker/program.S uses at least one unconditional branch instruction
+    category: ARMv6 Assembly
+    check: MatchFileRegex
+    options:
+      regex: '[b|B](\s|\t)+[a-zA-Z_]'
+      count: 1
+      exact: false
+- docs/report.md:
+  - description: docs/report.md answers all questions
+    category: Documentation
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
